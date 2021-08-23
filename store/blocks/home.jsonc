@@ -1,15 +1,140 @@
 {
-  "store.home": { 
-    "blocks": [
-      "rich-text"
+  "store.home": {
+    "blocks": ["tab-layout", "modal-trigger#form"]
+  },
+  /*Definição do tab-layout*/
+  "tab-layout": {
+    "children": ["tab-list", "tab-content"]
+  },
+  /* Definição das abas do tab-layout */
+  "tab-list": {
+    "children": [
+      "tab-list.item#promo",
+      "tab-list.item#corinthians",
+      "tab-list.item#palmeiras"
     ]
   },
-  "rich-text": { 
-    "props": { 
-      "text": "VTEX Store Framework",
-      "textAlignment": "CENTER",
-      "textPosition": "CENTER",
-      "font": "t-heading-1"
+  "tab-list.item#promo": {
+    "props": {
+      "tabId": "promo",
+      "label": "Promoções",
+      "defaultActiveTab": true
     }
+  },
+  "tab-list.item#corinthians": {
+    "props": {
+      "tabId": "corinthians",
+      "label": "Corinthians"
+    }
+  },
+  "tab-list.item#palmeiras": {
+    "props": {
+      "tabId": "palmeiras",
+      "label": "Palmeiras"
+    }
+  },
+
+  /* Definição do conteúdo de caba aba do tab-layout */
+  "tab-content": {
+    "children": [
+      "tab-content.item#promo",
+      "tab-content.item#corinthians",
+      "tab-content.item#palmeiras"
+    ]
+  },
+  "tab-content.item#promo": {
+    "children": [
+      "slider-layout#promo",
+      "search-result-layout.customQuery#home"
+    ],
+    "props": {
+      "tabId": "promo"
+    }
+  },
+  "tab-content.item#corinthians": {
+    "children": [
+      "slider-layout#promo",
+      "search-result-layout.customQuery#corinthians"
+    ],
+    "props": {
+      "tabId": "corinthians"
+    }
+  },
+  "tab-content.item#palmeiras": {
+    "children": [
+      "slider-layout#promo",
+      "search-result-layout.customQuery#palmeiras"
+    ],
+    "props": {
+      "tabId": "palmeiras"
+    }
+  },
+
+  /* Definição do slider-layout com imagens de banner*/
+  "slider-layout#promo": {
+    "children": ["image#banner1", "image#banner2"],
+    "props": {
+      "itemsPerPage": {
+        "desktop": 1,
+        "tablet": 1,
+        "phone": 1
+      },
+      "autoplay": {
+        "timeout": 5000,
+        "stopOnHover": true
+      }
+    }
+  },
+  /* Definição das imagens do slider-layout*/
+  "image#banner1": {
+    "props": {
+      "src": "assets/banner-1.png",
+      "alt": "Banner 1"
+    }
+  },
+  "image#banner2": {
+    "props": {
+      "src": "assets/banner-2.png",
+      "alt": "Banner 2"
+    }
+  },
+  /* Definição da prateleira de produtos*/
+
+  "search-result-layout.customQuery#home": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByReleaseDateDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "skusFilter": "ALL_AVAILABLE"
+      }
+    },
+    "blocks": ["search-result-layout.desktop"]
+  },
+  "search-result-layout.customQuery#corinthians": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByReleaseDateDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "queryField": "corinthians",
+        "mapField": "ft",
+        "skusFilter": "ALL_AVAILABLE"
+      }
+    },
+    "blocks": ["search-result-layout.desktop"]
+  },
+  "search-result-layout.customQuery#palmeiras": {
+    "props": {
+      "querySchema": {
+        "orderByField": "OrderByReleaseDateDESC",
+        "hideUnavailableItems": true,
+        "maxItemsPerPage": 8,
+        "queryField": "palmeiras",
+        "mapField": "ft",
+        "skusFilter": "ALL_AVAILABLE"
+      }
+    },
+    "blocks": ["search-result-layout.desktop"]
   }
 }

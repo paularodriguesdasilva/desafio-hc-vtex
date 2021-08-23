@@ -2,25 +2,45 @@
   "footer": {
     "blocks": ["footer-layout.desktop", "footer-layout.mobile"]
   },
-  "footer-layout.desktop": { 
-    "children": [
-      "flex-layout.row#footer"
-    ]
+  "footer-layout.desktop": {
+    "children": ["flex-layout.row#footer"]
   },
-  "footer-layout.mobile": { 
-    "children": [
-      "flex-layout.row#footer"
-    ]
+  "footer-layout.mobile": {
+    "children": ["flex-layout.row#footer"]
   },
-  "flex-layout.row#footer": { 
-    "children": [
-      "image"
-    ]
+  "flex-layout.row#footer": {
+    "children": ["vtex.menu@2.x:menu#footer"]
   },
-  "image": {
+  "vtex.menu@2.x:menu#footer": {
     "props": {
-      "width": 100,
-      "src": "https://brand.vtex.com/static/media/VTEX_pink_RGB.751a9fb5.svg"
+      "items": [
+        {
+          "id": "menu-item-shop",
+          "type": "custom",
+          "iconId": "profile",
+          "highlight": false,
+          "itemProps": {
+            "type": "internal",
+            "href": "#",
+            "noFollow": false,
+            "tagTitle": "Entrar",
+            "text": "Entrar"
+          }
+        },
+        {
+          "id": "menu-item-support",
+          "type": "custom",
+          "iconId": null,
+          "highlight": false,
+          "itemProps": {
+            "type": "internal",
+            "href": "https://api.whatsapp.com/send?phone=5511979713759&text=Obrigado(a)%20pelo%20contato!",
+            "noFollow": false,
+            "tagTitle": "Suporte",
+            "text": "Suporte"
+          }
+        }
+      ]
     }
   }
 }

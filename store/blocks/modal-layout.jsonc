@@ -1,0 +1,17 @@
+{
+  "modal-layout#home": {
+    "children": ["modal-trigger#form"]
+  },
+  "modal-trigger#form": {
+    "children": ["rich-text#form", "modal-layout#form"]
+  },
+  "rich-text#form": {
+    "props": {
+      "text": "Clique aqui para receber mais promoções",
+      "textPosition": "CENTER"
+    }
+  },
+  "modal-layout#form": {
+    "children": ["form"]
+  }
+}
